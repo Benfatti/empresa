@@ -33,8 +33,8 @@
                 <h1>Consulta</h1>
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="pesquisa.php" method="POST">
-                        <input style = "margin : 1.50px" class="form-control" type="search" placeholder="Nome" aria-label="search" name="busca" autofocus>
-                        <button style = "margin : 1.50px" class="btn btn-success" type="submit">Pesquisar</button>
+                        <input style="margin : 1.50px" class="form-control" type="search" placeholder="Nome" aria-label="search" name="busca" autofocus>
+                        <button style="margin : 1.50px" class="btn btn-success" type="submit">Pesquisar</button>
                     </form>
                 </nav>
                 <table class="table">
@@ -68,7 +68,8 @@
                                         <td>$email</td>
                                         <td>$data_nascimento</td>
                                         <td width=150px> <a href = 'cadastro_edit.php?id=$cod_pessoa' class = 'btn btn-success btn-sm'>Editar</a>
-                                                         <a width=150px href = '#' class = 'btn btn-danger btn-sm'>Excluir</a>
+                                                         <a width=150px href = '#' class = 'btn btn-danger btn-sm' data-toggle='modal' data-target='#confirma' 
+                                                          onclick=\"get_dados($cod_pessoa, '$nome')\">Excluir</a>
                                         </td>
                                       </tr>";
                         }
@@ -79,7 +80,31 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="confirma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="excluir_script.php" method="POST">
+                        <p>Deseja realmente excluir o usuário <b id="nome_pessoa"></b>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                    <input type="hidden" name="nome" id="nome_pessoa_1" value=""></input>
+                    <input type="hidden" name="id" id="cod_pessoa" value=""></input>
+                    <input type="submit" class="btn btn-danger" value="Sim"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript (Opcional) -->
+    <script src="js/functions.js"></script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -87,6 +112,7 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+
 </body>
 
 </html>

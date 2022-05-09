@@ -15,33 +15,33 @@
     <div class="container">
         <div class="row">
             <div class="col">
-    <h1>Cadastro</h1>
-    <form action="cadastro_script.php" method= POST >
-        <div class="form-goup">
-            <label for="nome"> Nome Completo </label>
-            <input type="text" class="form-control" name = "nome" required>
-        </div>
-        <div class="form-goup">
-            <label for="endereco">Endereço </label>
-            <input type="text" class="form-control" name = "endereco">
-        </div>
-        <div class="form-goup">
-            <label for="telefone"> Telefone </label>
-            <input type="text" class="form-control" name = "telefone">
-        </div>
-        <div class="form-goup">
-            <label for="email"> Email </label>
-            <input type="email" class="form-control" name = "email">
-        </div>
-        <div class="form-goup">
-            <label for="data_nascimento"> Data de Nascimento </label>
-            <input type="date" class="form-control" name = "data_nascimento">
-        </div>
-        <div class="form-goup">
-            <input type="submit" class="btn btn-success">
-            <a href = "index.php" class= "btn btn-success">Voltar</a>
-        </div>
-    </form>
+                <h1>Cadastro</h1>
+                <form action="cadastro_script.php" method=POST>
+                    <div class="form-goup">
+                        <label for="nome"> Nome Completo </label>
+                        <input type="text" class="form-control" name="nome" required>
+                    </div>
+                    <div class="form-goup">
+                        <label for="endereco">Endereço </label>
+                        <input type="text" class="form-control" name="endereco">
+                    </div>
+                    <div class="form-goup">
+                        <label for="telefone"> Telefone </label>
+                        <input type="text" class="form-control" name="telefone">
+                    </div>
+                    <div class="form-goup">
+                        <label for="email"> Email </label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    <div class="form-goup">
+                        <label for="data_nascimento"> Data de Nascimento </label>
+                        <input type="date" class="form-control" name="data_nascimento">
+                    </div>
+                    <div class="form-goup">
+                        <input type="submit" class="btn btn-success">
+                        <a href="index.php" class="btn btn-success">Voltar</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
