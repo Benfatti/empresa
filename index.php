@@ -15,16 +15,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
-            <div class="jumbotron">
-                <h1 class="display-4">Página Principal de cadastro da Empresa</h1>
+                <div class="jumbotron">
+                    <h1 class="display-4">Página Principal de cadastro da Empresa</h1>
                     <p class="lead">Sistema simplificado de cadastro empresarial. Estudos de CRUD e web com PHP.</p>
-                        <hr class="my-4">
+                    <hr class="my-4">
                     <p>Escolha uma das funções</p>
-                <p class="lead">
-            <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastro pessoal</a>
-            <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisa de dados</a>
-        </p>
-    </div>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastro pessoal</a>
+                        <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisa de dados</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
