@@ -1,3 +1,6 @@
+<?php
+    include "../validar.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <title>Alteração de Cadastro</title>
+    <title>Excluir Cadastro</title>
 </head>
 
 <body>
@@ -20,17 +23,13 @@
 
             $id = $_POST['id'];
             $nome = $_POST['nome'];
-            $endereco = $_POST['endereco'];
-            $telefone = $_POST['telefone'];
-            $email = $_POST['email'];
-            $data_nascimento = $_POST['data_nascimento'];
 
-            $sql = "UPDATE `pessoas` SET nome='$nome', endereco='$endereco', email='$email', telefone='$telefone', data_nascimento='$data_nascimento' WHERE cod_pessoa = $id";
+            $sql = "DELETE FROM pessoas WHERE cod_pessoa = $id";
 
             if (mysqli_query($conexao, $sql)) {
-                echo mensagem("$nome alterado com sucesso", 'success');
+                echo mensagem("$nome EXCLUÍDO com sucesso", 'success');
             } else
-                echo mensagem("$nome não foi alterado com sucesso", 'danger');
+                echo mensagem("$nome não foi EXCLUÍDO com sucesso", 'danger');
 
             ?>
             <a href="index.php" class="btn btn-primary">Voltar</a>

@@ -1,3 +1,6 @@
+<?php
+    include "../validar.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,11 +40,11 @@
                     </div>
                     <div class="form-goup">
                         <label for="telefone"> Telefone </label>
-                        <input type="text" class="form-control" name="email" value="<?php echo $linha['email']; ?>">
+                        <input type="text" class="form-control" name="telefone" value="<?php echo $linha['telefone']; ?>">
                     </div>
                     <div class="form-goup">
                         <label for="email"> Email </label>
-                        <input type="email" class="form-control" name="telefone" value="<?php echo $linha['telefone']; ?>">
+                        <input type="email" class="form-control" name="email" value="<?php echo $linha['email']; ?>">
                     </div>
                     <div class="form-goup">
                         <label for="data_nascimento"> Data de Nascimento </label>

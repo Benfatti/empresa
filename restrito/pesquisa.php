@@ -1,3 +1,6 @@
+<?php
+    include "../validar.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,6 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Pesquisa</title>
 </head>
 
@@ -33,17 +37,18 @@
                 <h1>Consulta</h1>
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="pesquisa.php" method="POST">
-                        <input style="margin : 1.50px" class="form-control" type="search" placeholder="Nome" aria-label="search" name="busca" autofocus>
+                        <input style="margin : 1.50px" class="form-control" type="search" placeholder="Nome" aria-label="search" name="busca" autofocus></input>
                         <button style="margin : 1.50px" class="btn btn-success" type="submit">Pesquisar</button>
                     </form>
                 </nav>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">Foto</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Endereço</th>
-                            <th scope="col">Email</th>
                             <th scope="col">Telefone</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Data de Nascimento</th>
                             <th scope="col">Funções</th>
                         </tr>
@@ -60,8 +65,12 @@
                             $email = $linha['email'];
                             $data_nascimento = $linha['data_nascimento'];
                             $data_nascimento = arruma_data($data_nascimento);
-
-                            echo "<tr>
+                            
+                            //inserindo foto
+                            $foto = $linha['foto'];
+                        
+                            echo "<tr>                                     
+                                        <th><img src='img/$foto' class='lista_foto'></th>
                                         <th scope='row'>$nome</th>
                                         <td>$endereco</td>
                                         <td>$telefone</td>
@@ -76,7 +85,7 @@
                         ?>
                     </tbody>
                 </table>
-                <a href="index.php" class="btn btn-info">Volte ao início</a>
+                <a href="index.php" class="btn btn-secondary">Volte ao início</a>
             </div>
         </div>
     </div>

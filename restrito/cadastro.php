@@ -1,3 +1,6 @@
+<?php
+    include "../validar.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +19,7 @@
         <div class="row">
             <div class="col">
                 <h1>Cadastro</h1>
-                <form action="cadastro_script.php" method=POST>
+                <form action="cadastro_script.php" method=POST enctype="multipart/form-data">
                     <div class="form-goup">
                         <label for="nome"> Nome Completo </label>
                         <input type="text" class="form-control" name="nome" required>
@@ -36,6 +39,10 @@
                     <div class="form-goup">
                         <label for="data_nascimento"> Data de Nascimento </label>
                         <input type="date" class="form-control" name="data_nascimento">
+                    </div>
+                    <div class="form-goup">
+                        <label for="foto"> Adicionar foto </label>
+                        <input type="file" class="form-control" name="foto" accept="image/*">
                     </div>
                     <div class="form-goup">
                         <input type="submit" class="btn btn-success">

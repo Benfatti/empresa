@@ -1,3 +1,6 @@
+<?php
+    include "../validar.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,6 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 
 <body>
@@ -16,20 +20,29 @@
             <?php
             include("conexao.php");
 
-            $nome = $_POST['nome'];
-            $endereco = $_POST['endereco'];
-            $telefone = $_POST['telefone'];
-            $email = $_POST['email'];
+            $nome = limpar($conexao, $_POST['nome']);
+            $endereco = limpar($conexao, $_POST['endereco']);
+            $telefone = limpar($conexao, $_POST['telefone']);
+            $email = limpar($conexao, $_POST['email']);
             $data_nascimento = $_POST['data_nascimento'];
+            /*upload da foto de cadastro*/
+            $foto = $_FILES['foto'];
+            $nome_foto = mover_foto($foto);
+            if ($nome_foto == 0) {
+                $nome_foto = "padrao";
+            }
 
-            $sql = "INSERT INTO `pessoas`( `nome`, `endereco`, `email`, `telefone`, `data_nascimento`) VALUES 
-        ('$nome','$endereco','$telefone','$email','$data_nascimento')";
+            $sql = "INSERT INTO pessoas ( nome, endereco, telefone, email, data_nascimento, foto ) VALUES 
+        ('$nome','$endereco','$telefone','$email','$data_nascimento','$nome_foto')";
 
             if (mysqli_query($conexao, $sql)) {
+                if ($nome_foto != "padrao") {
+                    echo "<img src='img/$nome_foto' title ='$nome_foto' class='mostra_foto'>";
+                }
                 echo mensagem("$nome cadastrado com sucesso", 'success');
-            } else
+            } else {
                 echo mensagem("$nome não foi cadastrado com sucesso", 'danger');
-
+            }
             ?>
             <a href="index.php" class="btn btn-primary">Voltar</a>
         </div>
