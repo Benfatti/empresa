@@ -1,33 +1,29 @@
 <?php
 
-class BancoDeDadosConexao{
-
-public static function conexao(){    
 $server = "localhost:3306";
 $user = "root";
 $pass = "";
 $bd = "empresa";
 
 try {
-    return mysqli_connect($server, $user, $pass, $bd);
+    $conexao = mysqli_connect($server, $user, $pass, $bd);
 } catch (Exception $m) {
     echo $m->getMessage();
     return false;
 }
-}
-
-public static function mensagem($texto, $tipo){
+function mensagem($texto, $tipo)
+{
     echo "<div class ='alert $tipo' role= 'alert' >$texto</div>";
 }
 
-public static function arruma_data($data)
+function arruma_data($data)
 {
     $d = explode('-', $data);
     $escreve = $d[2] . "/" . $d[1] . "/" . $d[0];
     return $escreve;
 }
 
-public static function mover_foto($arquivo_foto)
+function mover_foto($arquivo_foto)
 {
 
     $tipo_i = explode('/', $arquivo_foto['type']);
@@ -43,10 +39,7 @@ public static function mover_foto($arquivo_foto)
     }
 }
 
-public static function limpar($conexao, $texto_bruto){
+function limpar($conexao, $texto_bruto){
     $texto_limpo = htmlspecialchars(mysqli_real_escape_string($conexao, $texto_bruto));
     return $texto_limpo;
-}
-
-
 }
